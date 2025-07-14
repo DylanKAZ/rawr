@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Position and Color</title>
+    <style>
+        .text {
+            position: absolute;
+            left: 50px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <label>Top Text Y:</label>
+        <input type="text" name="text_top_y" value="{{ text_top_y }}"><br>
+
+        <label>Bottom Text Y:</label>
+        <input type="text" name="text_bottom_y" value="{{ text_bottom_y }}"><br>
+
+        <label>Text Color:</label>
+        <select name="selected_color">
+            <option value="black" {% if selected_color == "black" %}selected{% endif %}>Black</option>
+            <option value="red" {% if selected_color == "red" %}selected{% endif %}>Red</option>
+            <option value="blue" {% if selected_color == "blue" %}selected{% endif %}>Blue</option>
+            <option value="green" {% if selected_color == "green" %}selected{% endif %}>Green</option>
+            <option value="purple" {% if selected_color == "purple" %}selected{% endif %}>Purple</option>
+        </select><br><br>
+
+        <button type="submit">Apply</button>
+    </form>
+
+    <p class="text" style="color: {{selected_color}}; top: {{text_top_y}};">Top Text</p>
+    <p class="text" style="color: {{selected_color}}; bottom: {{text_bottom_y}};">Bottom Text</p>
+
+</body>
+</html>
